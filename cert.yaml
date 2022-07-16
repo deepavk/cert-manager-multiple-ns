@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: selfsigned-cert
+spec:
+  dnsNames:
+    - app.test
+  privateKey:
+    rotationPolicy: Always
+  secretName: selfsigned-cert-tls
+  duration: 1h0m1s
+  renewBefore: 5m1s
+  issuerRef:
+    name: selfsigned-ci
+    kind: ClusterIssuer
